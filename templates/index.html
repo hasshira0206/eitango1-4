@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Home｜いちよん英単語{% endblock %}
+{% block content %}
+
+
+
+    <div class="py-3">
+        <div class="d-grid gap-2">
+            <button onclick="location.href='/create'" class="btn btn-secondary btn-lg">英単語を追加する</button>
+        </div>
+    </div>
+<h2>単語一覧</h2>
+<table class="table table-sm">
+  <tr>
+    <th>No.</th>
+    <th>英単語</th>
+    <th>品詞</th>
+    <th>動詞</th>
+    <th>詳細</th>
+    <th>操作</th>
+  </tr>
+  {% for post in posts %}
+  <tr>
+    <td>{{post.id}}</td>
+    <td>{{post.word}}</td>
+    <td>{{post.word_type}}</td>
+    <td>{{post.word_mean}}</td>
+    <td><button onclick="location.href='/{{ post.id }}/info'" class="btn btn">詳細</button></td>
+    <td><button onclick="location.href='/{{ post.id }}/update'" class="btn btn">編集</button><button onclick="location.href='/{{ post.id }}/delete'" class="btn">削除</button></td>
+  </tr>
+  {% endfor %}
+</table>
+<div class="py-3">
+    <h4>なんやこれは？</h4>
+    <div class="alert alert-secondary" role="alert">
+        webアプリ開発の練習で作成しました。<br>
+        追加実装したい機能が山ほどあるので、今後にご期待ください。<br>
+        作成日：2022/5/28<br>
+        最終更新：2022/5/28<br>
+        1-4-35　はっしら
+        </div>
+</div>
+{% endblock %}
