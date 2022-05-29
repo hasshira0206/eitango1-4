@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}記録する｜俺の勉強記録{% endblock %}
+{% block content %}
+<div class="py-3">
+<h2>英単語の追加</h2>
+</div>
+<form method="POST">
+    <div class="alert alert-secondary" role="alert">
+    ここから単語の追加ができるゾヨ。<br>
+    「編集」から訂正が可能です。
+    </div>
+        <label for="word">英単語（英熟語でも可能）</label><br>
+        <input type="text" name="word" class="form-control"><br>
+        
+        <label for="word_type">品詞</label><br>
+
+            <select name="word_type" class="form-control">
+                {% for l in li %}
+                <option value={{l}}>{{l}}</option>
+                {% endfor %}
+            </select>
+        <br>
+        <label for="word_mean">意味</label><br>
+        <input type="text" name="word_mean" class="form-control"><br>
+        
+        <label for="word_ex">例文など（省略可能）</label><br>
+        <textarea name="word_ex" rows="1"  wrap="soft" class="form-control"></textarea><br>
+        <div class="d-grid gap-2">
+        <button type="submit"  class="btn btn-secondary btn-lg">英単語を追加する</button>
+        </div>
+    </form>
+
+{% endblock %}

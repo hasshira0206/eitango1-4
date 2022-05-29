@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Home｜いちよん英単語{% endblock %}
+{% block content %}
+<div class="py-4">
+<h2>{{post.word}}の詳細</h2>
+</div>
+<table class="table table-sm">
+    <tr>
+        <th>英単語</th>
+        <th>品詞</th>
+        <th>意味</th>
+    </tr>
+    <tr>
+        <td>{{post.word}}</td>
+        <td>{{post.word_type}}</td>
+        <td>{{post.word_mean}}</td>
+    </tr>
+</table>
+<h3>例文</h3>
+<div class="alert alert-secondary" role="alert">
+    {{post.word_ex}}
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}編集する｜いちよん英単語{% endblock %}
+{% block content %}
+<div class="py-3">
+<h2>編集画面</h2>
+</div>
+<div class="alert alert-secondary" role="alert">
+ここで編集ができます。
+「更新」でホームに戻ります。
+</div>
+    <form method="POST">
+        <label for="word">英単語（英熟語でも可能）</label><br>
+        <input type="text" name="word" value={{ post.word }} class="form-control"><br>
+        
+        <label for="word_type" class="form-control">品詞</label><br>
+
+            <select name="word_type">
+                {% for l in li %}
+                <option value={{l}}>{{l}}</option>
+                {% endfor %}
+            </select>
+        <br>
+        <label for="word_mean">意味</label><br>
+        <input type="text" name="word_mean" value={{ post.word_mean }} class="form-control"><br>
+        
+        <label for="word_ex">例文など（省略可能）</label><br>
+        <textarea name="word_ex" rows="1"  wrap="soft" value={{ post.word_ex }} class="form-control"></textarea><br>
+        <input type="submit" value="更新する">
+    </form>
+</form>
+
+{% endblock %}
